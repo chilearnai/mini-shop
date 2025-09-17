@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="brand nav" routerLink="/">Mini Shop</div>
+  <div class="nav-links">
+    <div class="nav" routerLink="/">Products</div>
+    <div class="nav" routerLink="/cart">
+      Cart
+      <div class="badge" *ngIf="cartCount">{{ cartCount }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <router-outlet></router-outlet>
+</div>

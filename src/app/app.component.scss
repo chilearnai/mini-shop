@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6, #9333ea); // синий → фиолетовый
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+
+  .brand {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      color: #facc15; // жёлтый акцент при наведении
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    .nav {
+      position: relative;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #f472b6; // розовый акцент при наведении
+      }
+
+      .badge {
+        position: absolute;
+        top: -0.6rem;
+        right: -0.9rem;
+        background: #ef4444; // красный бейдж
+        color: white;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 0.2rem 0.5rem;
+        border-radius: 9999px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        animation: pop 0.3s ease; // анимация появления
+      }
+    }
+  }
+}
+
+.main {
+  padding: 2rem;
+  background: #f9fafb; // светлый фон
+  min-height: calc(100vh - 70px);
+  animation: fadeIn 0.4s ease;
+}
+
+// 🔹 Анимации
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,46 @@
+<div class="products">
+  <div class="products -card" *ngFor="let p of products">
+    <img class="products -card-image" [src]="p.image" [alt]="p.name">
+    <h3 class="products -card-title">{{p.name}}</h3>
+    <p class="products -card-desc">{{p.description}}</p>
+   
+   
+<div class="products -card-meta">
+  <div class="products -card-price">
+    {{ p.price | currency:'USD':'symbol':'1.2-2' }}
+  </div>
+
+  <!-- Если товара нет в корзине -->
+  <button
+    *ngIf="!cartItems[p.id]"
+    type="button"
+    class="products -card-button"
+    (click)="addToCart(p)">
+    Add to cart
+  </button>
+
+  <!-- Если товар уже в корзине -->
+  <div *ngIf="cartItems[p.id]" class="products -card-qty">
+    <button 
+      type="button" 
+      class="products -card-qty-btn" 
+      (click)="decreaseQty(p)">
+      -
+    </button>
+    <span class="products -card-qty-value">
+      {{ cartItems[p.id] }}
+    </span>
+    <button 
+      type="button" 
+      class="products -card-qty-btn" 
+      (click)="increaseQty(p)">
+      +
+    </button>
+  </div>
+</div>
+
+
+
+
+  </div>
+</div>
