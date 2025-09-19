@@ -6,6 +6,25 @@
       Cart
       <div class="badge" *ngIf="cartCount">{{ cartCount }}</div>
     </div>
+
+    <!-- 🔑 Авторизация -->
+    <div class="auth" *ngIf="!(user$ | async); else loggedIn">
+      <button class="auth-btn -login" (click)="loginWithGoogle()">
+        Login
+      </button>
+    </div>
+
+    <ng-template #loggedIn>
+      <div class="auth-user">
+        <img
+          class="auth-avatar"
+          [src]="(user$ | async)?.photoURL"
+          alt="user"
+        />
+        <span class="auth-name">{{ (user$ | async)?.displayName }}</span>
+        <button class="auth-btn -logout" (click)="logout()">Logout</button>
+      </div>
+    </ng-template>
   </div>
 </div>
 
