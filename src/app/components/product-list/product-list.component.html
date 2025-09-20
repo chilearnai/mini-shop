@@ -1,46 +1,36 @@
 <div class="products">
-  <div class="products -card" *ngFor="let p of products">
-    <img class="products -card-image" [src]="p.image" [alt]="p.name">
-    <h3 class="products -card-title">{{p.name}}</h3>
-    <p class="products -card-desc">{{p.description}}</p>
-   
-   
-<div class="products -card-meta">
-  <div class="products -card-price">
-    {{ p.price | currency:'USD':'symbol':'1.2-2' }}
-  </div>
+  <div class="products -card" *ngFor="let product of products">
+    <img class="products -card-image" [src]="product.image" [alt]="product.name" />
+    <h3 class="products -card-title">{{ product.name }}</h3>
+    <p class="products -card-desc">{{ product.description }}</p>
 
-  <!-- Если товара нет в корзине -->
-  <button
-    *ngIf="!cartItems[p.id]"
-    type="button"
-    class="products -card-button"
-    (click)="addToCart(p)">
-    Add to cart
-  </button>
+    <div class="products -card-meta">
+      <div class="products -card-price">
+        {{ product.price | currency: 'USD' : 'symbol' : '1.2-2' }}
+      </div>
 
-  <!-- Если товар уже в корзине -->
-  <div *ngIf="cartItems[p.id]" class="products -card-qty">
-    <button 
-      type="button" 
-      class="products -card-qty-btn" 
-      (click)="decreaseQty(p)">
-      -
-    </button>
-    <span class="products -card-qty-value">
-      {{ cartItems[p.id] }}
-    </span>
-    <button 
-      type="button" 
-      class="products -card-qty-btn" 
-      (click)="increaseQty(p)">
-      +
-    </button>
-  </div>
-</div>
+      <!-- Если товара нет в корзине -->
+      <button
+        *ngIf="!cartItems[product.id]"
+        type="button"
+        class="products -card-button"
+        (click)="addToCart(product)"
+      >
+        Add to cart
+      </button>
 
-
-
-
+      <!-- Если товар уже в корзине -->
+      <div *ngIf="cartItems[product.id]" class="products -card-qty">
+        <button type="button" class="products -card-qty-btn" (click)="decreaseQty(product)">
+          -
+        </button>
+        <span class="products -card-qty-value">
+          {{ cartItems[product.id] }}
+        </span>
+        <button type="button" class="products -card-qty-btn" (click)="increaseQty(product)">
+          +
+        </button>
+      </div>
+    </div>
   </div>
 </div>

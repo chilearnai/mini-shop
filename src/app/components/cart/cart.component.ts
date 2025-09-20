@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  standalone: false
+  imports: [CommonModule],
 })
 export class CartComponent implements OnInit {
   items: any[] = [];
@@ -14,7 +16,7 @@ export class CartComponent implements OnInit {
   constructor(private cart: CartService) {}
 
   ngOnInit(): void {
-    this.cart.itemsObservable.subscribe(items => {
+    this.cart.itemsObservable.subscribe((items) => {
       this.items = items;
       this.total = this.cart.getTotal();
       console.log(this.items, this.total);

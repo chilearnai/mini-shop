@@ -1,33 +1,48 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+import { Injectable, inject } from '@angular/core';
+import type { User } from '@angular/fire/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  authState,
+} from '@angular/fire/auth';
+import type { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  private auth = inject(Auth);
 
-  // Google login
-  loginWithGoogle() {
-    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // 🔹 Войти через Google
+  loginWithGoogle(): Promise<User> {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(this.auth, provider).then((result) => result.user);
   }
 
-  // Email login
-  login(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  // 🔹 Войти по email + пароль
+  login(email: string, password: string): Promise<User> {
+    return signInWithEmailAndPassword(this.auth, email, password).then((res) => res.user);
   }
 
-  // Register
-  register(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  // 🔹 Зарегистрировать нового юзера
+  register(email: string, password: string): Promise<User> {
+    return createUserWithEmailAndPassword(this.auth, email, password).then((res) => res.user);
   }
 
-  // Logout
-  logout() {
-    return this.afAuth.signOut();
+  // 🔹 Выйти
+  logout(): Promise<void> {
+    return signOut(this.auth);
   }
 
-  // Текущий юзер (Observable)
-  get user$() {
-    return this.afAuth.authState;
+  // 🔹 Поток текущего пользователя (Observable)
+  get user$(): Observable<User | null> {
+    return authState(this.auth);
+  }
+
+  // 🔹 Текущий пользователь (синхронно)
+  get currentUser(): User | null {
+    return this.auth.currentUser;
   }
 }

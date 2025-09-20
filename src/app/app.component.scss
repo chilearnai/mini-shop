@@ -12,7 +12,9 @@
   .brand {
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
 
     &:hover {
       transform: scale(1.05);
@@ -49,57 +51,55 @@
     }
   }
 
+  /* 🔑 Авторизация */
+  .auth {
+    .auth-btn {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.2s;
 
-    /* 🔑 Авторизация */
-    .auth {
-      .auth-btn {
-        padding: 0.4rem 0.9rem;
-        font-size: 0.85rem;
-        border-radius: 6px;
-        border: none;
-        cursor: pointer;
-        font-weight: 500;
-        transition: background 0.2s;
+      &.-login {
+        background: #22c55e; // зелёная кнопка
+        color: #fff;
 
-        &.-login {
-          background: #22c55e; // зелёная кнопка
-          color: #fff;
-
-          &:hover {
-            background: #16a34a;
-          }
+        &:hover {
+          background: #16a34a;
         }
+      }
 
-        &.-logout {
-          background: #ef4444; // красная кнопка
-          color: #fff;
+      &.-logout {
+        background: #ef4444; // красная кнопка
+        color: #fff;
 
-          &:hover {
-            background: #dc2626;
-          }
+        &:hover {
+          background: #dc2626;
         }
       }
     }
+  }
 
-    .auth-user {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+  .auth-user {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 
-      .auth-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      }
-
-      .auth-name {
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
+    .auth-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
 
+    .auth-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
 }
 
 .main {
@@ -107,6 +107,10 @@
   background: #f9fafb; // светлый фон
   min-height: calc(100vh - 70px);
   animation: fadeIn 0.4s ease;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
 }
 
 // 🔹 Анимации

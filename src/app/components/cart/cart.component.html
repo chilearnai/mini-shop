@@ -1,31 +1,32 @@
 <div class="cart">
   <h2 class="cart -title">Корзина</h2>
 
-  <div class="cart -empty" *ngIf="items.length === 0">
-    Корзина пуста.
-  </div>
+  <div class="cart -empty" *ngIf="items.length === 0">Корзина пуста.</div>
 
   <div class="cart -item" *ngFor="let it of items">
-    <img class="cart -image" [src]="it.product.image" [alt]="it.product.name">
+    <img class="cart -image" [src]="it.product.image" [alt]="it.product.name" />
 
     <div class="cart -details">
-      <div class="cart -name"><strong>{{it.product.name}}</strong></div>
-      <div class="cart -desc">{{it.product.description}}</div>
+      <div class="cart -name">
+        <strong>{{ it.product.name }}</strong>
+      </div>
+      <div class="cart -desc">{{ it.product.description }}</div>
       <div class="cart -qty">
         <label>
           Qty:
-          <input 
-            class="cart -input" 
-            type="number" 
-            [value]="it.qty" 
-            (change)="changeQty(it,$event)">
+          <input
+            class="cart -input"
+            type="number"
+            [value]="it.qty"
+            (change)="changeQty(it, $event)"
+          />
         </label>
       </div>
     </div>
 
     <div class="cart -meta">
       <div class="cart -price">
-        {{ (it.product.price * it.qty) | currency:'USD':'symbol' }}
+        {{ it.product.price * it.qty | currency: 'USD' : 'symbol' }}
       </div>
       <div class="cart -remove">
         <button class="cart -btn -secondary" (click)="remove(it)">Remove</button>
@@ -34,7 +35,7 @@
   </div>
 
   <div class="cart -total" *ngIf="items.length > 0">
-    Total: {{ total | currency:'USD':'symbol':'1.2-2' }}
+    Total: {{ total | currency: 'USD' : 'symbol' : '1.2-2' }}
   </div>
 
   <div class="cart -actions">
