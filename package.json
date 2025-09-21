@@ -16,7 +16,8 @@
     "lint:fix": "ng lint --fix",
     "format": "prettier --write \"src/**/*.{ts,html,scss,css,js,json,md}\"",
     "storybook": "ng run mini-shop:storybook",
-    "build-storybook": "ng run mini-shop:build-storybook"
+    "build-storybook": "ng run mini-shop:build-storybook",
+    "deploy": "ng build --configuration production && vercel --prod"
   },
   "dependencies": {
     "@angular/common": "^20.3.1",
