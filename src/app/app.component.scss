@@ -1,13 +1,15 @@
+@use '../theme/theme.scss' as *;
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #3b82f6, #9333ea); // синий → фиолетовый
-  color: white;
+  background: var(--background);
+  color: var(--text-primary);
   font-weight: bold;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border-bottom: 2px solid var(--border-color);
 
   .brand {
     font-size: 1.5rem;
@@ -18,7 +20,7 @@
 
     &:hover {
       transform: scale(1.05);
-      color: #facc15; // жёлтый акцент при наведении
+      color: var(--warning);
     }
   }
 
@@ -32,21 +34,21 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color: #f472b6; // розовый акцент при наведении
+        color: var(--pink);
       }
 
       .badge {
         position: absolute;
         top: -0.6rem;
         right: -0.9rem;
-        background: #ef4444; // красный бейдж
-        color: white;
+        background: var(--danger);
+        color: #fff;
         font-size: 0.7rem;
         font-weight: bold;
         padding: 0.2rem 0.5rem;
         border-radius: 9999px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-        animation: pop 0.3s ease; // анимация появления
+        box-shadow: 0 2px 6px var(--shadow-color);
+        animation: pop 0.3s ease;
       }
     }
   }
@@ -63,20 +65,20 @@
       transition: background 0.2s;
 
       &.-login {
-        background: #22c55e; // зелёная кнопка
+        background: var(--success);
         color: #fff;
 
         &:hover {
-          background: #16a34a;
+          background: var(--success-hover);
         }
       }
 
       &.-logout {
-        background: #ef4444; // красная кнопка
+        background: var(--danger);
         color: #fff;
 
         &:hover {
-          background: #dc2626;
+          background: var(--danger-hover);
         }
       }
     }
@@ -91,20 +93,62 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      border: 2px solid var(--border-color);
+      box-shadow: 0 2px 6px var(--shadow-color);
     }
 
     .auth-name {
       font-size: 0.9rem;
       font-weight: 500;
+      color: var(--text-secondary);
+    }
+  }
+
+  /* 🌙 Переключатель темы */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .toggle-btn {
+      width: 50px;
+      height: 26px;
+      background: var(--toggle-bg);
+      border-radius: 9999px;
+      position: relative;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: var(--toggle-bg-hover);
+      }
+
+      .toggle-circle {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--toggle-circle);
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      &.active {
+        background: var(--toggle-active);
+
+        .toggle-circle {
+          transform: translateX(24px);
+          background: var(--toggle-circle-active);
+        }
+      }
     }
   }
 }
 
 .main {
   padding: 2rem;
-  background: #f9fafb; // светлый фон
+  background: var(--background);
+  color: var(--text-primary);
   min-height: calc(100vh - 70px);
   animation: fadeIn 0.4s ease;
   display: flex;

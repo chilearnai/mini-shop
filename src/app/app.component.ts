@@ -15,6 +15,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class AppComponent implements OnInit {
   user$: Observable<any | null>;
 
+     isDarkTheme = false;
+
   cartCount = 0;
   constructor(
     private auth: AuthService,
@@ -35,5 +37,15 @@ export class AppComponent implements OnInit {
 
   loginWithGoogle() {
     this.auth.loginWithGoogle();
+  }
+
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+    if (this.isDarkTheme) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
   }
 }

@@ -1,15 +1,16 @@
 import { ChangeDetectorRef, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { ProductService } from '../../services/product.service';
-import { CartService } from '../../services/cart.service';
+import  { ProductService } from '../../services/product.service';
+import  { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];

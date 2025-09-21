@@ -1,0 +1,61 @@
+/* 🌞 Светлая тема */
+:root {
+  --background: #f9fafb;
+  --surface: #ffffff;
+
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+
+  --primary: #3b82f6;
+  --accent: #9333ea;
+  --success: #22c55e;
+  --success-hover: #16a34a;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --warning: #facc15;
+  --pink: #f472b6;
+
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+
+  --btn-secondary-bg: #f3f4f6;
+  --btn-secondary-hover: #e5e7eb;
+
+  --toggle-bg: rgb(59 130 246);
+  --toggle-bg-hover: rgb(59 130 246);
+  --toggle-active: var(--warning);
+  --toggle-circle: #fff;
+  --toggle-circle-active: #333;
+}
+
+/* 🌙 Тёмная тема */
+body.dark-theme {
+  --background: #121212;
+  --surface: #1e1e1e;
+
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  --primary: #60a5fa;
+  --accent: #a855f7;
+  --success: #4ade80;
+  --success-hover: #22c55e;
+  --danger: #f87171;
+  --danger-hover: #dc2626;
+  --warning: #facc15;
+  --pink: #f9a8d4;
+
+  --border-color: rgba(255, 255, 255, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+
+  --btn-secondary-bg: #374151;
+  --btn-secondary-hover: #4b5563;
+
+  --toggle-bg: rgba(255, 255, 255, 0.25);
+  --toggle-bg-hover: rgba(255, 255, 255, 0.4);
+  --toggle-active: var(--warning);
+  --toggle-circle: #f9fafb;
+  --toggle-circle-active: #111;
+}

@@ -19,6 +19,21 @@
         <button class="auth-btn -logout" (click)="logout()">Logout</button>
       </div>
     </ng-template>
+
+    <!-- 🌙 Переключатель темы -->
+ 
+<div class="theme-toggle">
+  <div
+    class="toggle-btn"
+    [class.active]="isDarkTheme"
+    (click)="toggleTheme()"
+  >
+    <div class="toggle-circle"></div>
+  </div>
+</div>
+
+
+
   </div>
 </div>
 
